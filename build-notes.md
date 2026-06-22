@@ -27,12 +27,12 @@
 
 - Latest source date in current file set: 2026-08-01
 - PPIC file modified: 2026-06-20T08:19:45
-- WIP files merged: 1
+- WIP files merged: 2
 - Latest WIP file modified: 2026-06-22T15:54:35
 - Cutting file modified: 2026-06-20T08:21:01
 
 ## Source Mapping
 
 - PPIC R01: schedule fields, standard output, sewing inline/offline, delivery dates, line status.
-- R15 WIP: cutting, subprocess, loading, artwork tokens, process quantities. All `Planning_R15_WIP*.xlsx` files in raw data are merged before joining to PPIC.
+- R15 WIP: cutting, subprocess, loading, artwork tokens, process quantities. All `Planning_R15_WIP*.xlsx` files and `R15 WIP ALA.xlsx` in raw data are merged before joining to PPIC.
 - Cutting R11: average consumption per SP and style to estimate yard usage.
