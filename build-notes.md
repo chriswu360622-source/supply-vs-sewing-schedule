@@ -16,6 +16,7 @@
 - Stage completion is shown as a daily slice against that scheduled daily target, and the final day can be partial when the remaining order or output is smaller.
 - `Order Qty` is kept in the dashboard because it controls how many days a row can span. `Allo Qty` is still retained in the raw data for reference.
 - WIP rows without a PPIC R01 match are added for ALA/GMM/VT1 factory coverage; A2G rows are normalized into GMM. Their WIP `Standard Output` is retained for process-progress fallbacks, but dashboard daily standard qty is based on the sewing schedule spread.
+- When one exact `SPNO` appears in multiple PPIC schedule rows, the matched WIP quantities are split across those rows in proportion to each row's `Order Qty` so the same WIP total is not duplicated in the dashboard.
 - `Cutting` uses WIP `Cut_Qty` as the complete quantity.
 - `Loading` uses WIP `RFID Loading Qty`, but if `RFID Loading Qty` is lower than `RFID SewingLine In Qty`, the dashboard uses `RFID SewingLine In Qty` instead. This prevents undercounting when loading has already happened but the loading field was not updated correctly.
 - `Sub-process` tokens are split from WIP `Orig. Artwork` using `+` and matched to HT, AT, PAD-PRT, EMB, AUT, FM, BO, and PRT.
