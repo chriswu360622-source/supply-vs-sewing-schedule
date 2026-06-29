@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ACCESSORY SUPPLIER SCORE - NIKE</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="dashboard-shell">
+      <header class="hero">
+        <div>
+          <h1>ACCESSORY SUPPLIER SCORE - NIKE</h1>
+          <p>Filter by warehouse arrival month and review supplier quality, defect reasons, and exception details.</p>
+        </div>
+        <div class="source-meta">
+          <span>Source: ACCESSORY REPORT.xlsx</span>
+          <span id="rowCount">Rows: --</span>
+          <span id="latestMonth">Latest month: --</span>
+        </div>
+      </header>
+
+      <section class="filter-bar">
+        <div class="month-pills" id="monthPills"></div>
+        <label>
+          Factory
+          <select id="factoryFilter"></select>
+        </label>
+        <label>
+          Supplier
+          <select id="supplierFilter"></select>
+        </label>
+        <label>
+          Material
+          <select id="materialFilter"></select>
+        </label>
+        <button id="resetFilters" type="button">Reset</button>
+      </section>
+
+      <section class="kpis" aria-label="KPI summary">
+        <article class="kpi kpi-teal">
+          <span>Total lots</span>
+          <strong id="kpiTotal">--</strong>
+          <small>Incoming line items</small>
+        </article>
+        <article class="kpi kpi-red">
+          <span>Fail lots</span>
+          <strong id="kpiFail">--</strong>
+          <small>Rows flagged Fail</small>
+        </article>
+        <article class="kpi kpi-blue">
+          <span>Pass rate</span>
+          <strong id="kpiPassRate">--</strong>
+          <small>Primary supplier score</small>
+        </article>
+        <article class="kpi kpi-amber">
+          <span>Current fail rate</span>
+          <strong id="kpiFailRate">--</strong>
+          <small>Selected filter scope</small>
+        </article>
+      </section>
+
+      <section class="grid-main">
+        <article class="panel supplier-panel">
+          <div class="panel-heading compact-heading">
+            <h2>All supplier quality scores</h2>
+            <span id="supplierCount" class="detail-count"></span>
+          </div>
+          <div id="supplierScores" class="score-list"></div>
+        </article>
+
+        <article class="panel trend-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Monthly arrival quality trend</h2>
+              <p>Bars show arrivals and fail counts. Line shows pass rate. Click a month to filter the other visuals.</p>
+            </div>
+          </div>
+          <div id="trendChart" class="chart"></div>
+        </article>
+
+        <article class="panel issue-panel">
+          <div class="mix-section">
+            <h2>Failure reason mix</h2>
+            <div class="issue-layout">
+              <div id="issueDonut" class="donut"></div>
+              <div id="issueLegend" class="issue-legend"></div>
+            </div>
+            <p id="topReason" class="microcopy"></p>
+          </div>
+
+          <div class="mix-section material-section">
+            <h2>Fail by material type</h2>
+            <div class="issue-layout">
+              <div id="materialDonut" class="donut"></div>
+              <div id="materialLegend" class="issue-legend"></div>
+            </div>
+            <p id="topMaterial" class="microcopy"></p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel detail-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Recent exception samples</h2>
+            <p>Filtered Fail rows for follow-up review.</p>
+          </div>
+          <span id="detailCount" class="detail-count"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>SP#</th>
+                <th>Supplier</th>
+                <th>Month</th>
+                <th>Material</th>
+                <th>Issue</th>
+                <th>Arrive Qty</th>
+                <th>Inspector</th>
+              </tr>
+            </thead>
+            <tbody id="detailRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="./data/dashboard-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
