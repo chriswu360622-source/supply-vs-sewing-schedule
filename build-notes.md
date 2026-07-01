@@ -13,7 +13,7 @@
 - `Sewing Inline` is the primary time axis.
 - `Buyer Delivery` is the default delivery-date field, but the dashboard can switch to `SCI Delivery` or `CRD`.
 - Dashboard `Standard Qty` is based on PPIC R01 `Work Hour/Day` rounded up to the next 0.5 hour, multiplied by `Standard Output/Hour`. `Standard Output` is retained as the raw PPIC reference, not as the full-day authority.
-- Inline and offline dates use actual productive working-hour overlap: 07:30-12:00, 13:00-16:00, then overtime from 16:30 in 30-minute blocks. Sundays are skipped. Each daily target is capped by the remaining row `Allo Qty`.
+- Inline and offline dates use actual productive working-hour overlap: 07:30-12:00, 13:00-16:00, then overtime from 16:30 in 30-minute blocks. Saturdays are capped at 7.5 hours ending 16:00; Sundays are skipped. Each daily target is capped by the remaining row `Allo Qty`.
 - Stage completion is shown as a daily slice against that scheduled daily target, and the final day can be partial when the remaining order or output is smaller.
 - `Order Qty` is kept as the PPIC total order quantity. `Allo Qty` controls the PPIC schedule-row quantity for progress allocation.
 - WIP rows without a PPIC R01 match are added for ALA/GMM/VT1 factory coverage; A2G rows are normalized into GMM. Their WIP `Standard Output` is retained for process-progress fallbacks, but dashboard daily standard qty is based on the sewing schedule spread.
