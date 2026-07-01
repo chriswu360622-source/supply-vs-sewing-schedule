@@ -22,7 +22,7 @@
 - When the combined WIP progress for a repeated `SP` reaches or exceeds its `Order Qty`, every allocated PPIC schedule row for that SP is complete for that stage.
 - `Cutting` uses WIP `Cut_Qty` as the complete quantity.
 - `Loading` uses WIP `RFID Loading Qty`, but if `RFID Loading Qty` is lower than `RFID SewingLine In Qty`, the dashboard uses `RFID SewingLine In Qty` instead. This prevents undercounting when loading has already happened but the loading field was not updated correctly.
-- `Sub-process` tokens are split from WIP `Orig. Artwork` using `+` and matched to HT, AT, PAD-PRT, EMB, AUT, FM, BO, and PRT.
+- `Sub-process` tokens are split from WIP `Orig. Artwork` using `+` and matched to HT, AT, PAD-PRT, EMB, AUT, FM, BO, and PRT. ATQ tokens and ATQ quantity fields are merged into AT.
 - Subprocess quantities use the higher of process/RFID progress and loading qty for each required code, because subprocess completion should not be lower than loading. Print and Pad Print also use WIP progress fields such as `PRINTING` and `PAD PRINTING` as fallbacks when RFID farm out is blank.
 - `Stage` completion only uses complete and lacking states. Any unfinished quantity is red; there is no separate other state in the UI.
 - Default date window is today through next week.
